@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 import 'package:godzyken/app/middleware/auth_middleware.dart';
@@ -64,6 +65,16 @@ class AppPages {
                   binding: ProfileBinding(),
                   middlewares: [EnsureAuthMiddleware()],
                   transition: Transition.size,
+                  children: [
+                    GetPage(
+                      name: _Paths.USER_MODEL,
+                      title: 'user profile',
+                      page: () => const UserModelView(),
+                      binding: UserModelBinding(),
+                      middlewares: [EnsureAuthMiddleware()],
+                      transition: Transition.size,
+                    ),
+                  ]
                 ),
                 GetPage(
                     name: _Paths.PRODUCTS,
@@ -87,10 +98,5 @@ class AppPages {
             binding: SettingsBinding(),
           ),
         ]),
-    GetPage(
-      name: _Paths.USER_MODEL,
-      page: () => UserModelView(),
-      binding: UserModelBinding(),
-    ),
   ];
 }

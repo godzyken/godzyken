@@ -24,6 +24,7 @@ class ProductsController extends GetxController {
   void onInit() {
     super.onInit();
 
+    Get.log('Product controller initialized');
   }
 
 

@@ -15,7 +15,9 @@ abstract class Routes {
 
   static String PRODUCT_DETAILS(String? productId) => '$PRODUCTS/$productId';
   static const DASHBOARD = _Paths.HOME + _Paths.DASHBOARD;
-  static const USER_MODEL = _Paths.USER_MODEL;
+
+  static String USER_MODEL(String? userId) => '$PROFILE/$userId';
+
 }
 
 abstract class _Paths {
@@ -26,5 +28,5 @@ abstract class _Paths {
   static const LOGIN = '/login';
   static const PRODUCT_DETAILS = '/:productId';
   static const DASHBOARD = '/dashboard';
-  static const USER_MODEL = '/user-model';
+  static const USER_MODEL = '/:userId';
 }

@@ -14,7 +14,7 @@ class UserModelView extends GetView<UserModelController> {
       builder: (context, delegate, currentRoute) {
         final currentLocation = currentRoute?.location;
         var currentIndex = 0;
-        if (currentLocation?.startsWith(Routes.USER_MODEL) == true) {
+        if (currentLocation?.startsWith(Routes.USER_MODEL(controller.user!.id)) == true) {
           currentIndex = 2;
         }
         if (currentLocation?.startsWith(Routes.PROFILE) == true) {
@@ -33,7 +33,7 @@ class UserModelView extends GetView<UserModelController> {
                   delegate.toNamed(Routes.PROFILE);
                   break;
                 case 1:
-                  delegate.toNamed(Routes.USER_MODEL);
+                  delegate.toNamed(Routes.USER_MODEL(controller.user!.id));
                   break;
                 case 2:
                   delegate.toNamed(Routes.LOGIN_THEN(controller.user!.login));

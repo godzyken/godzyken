@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:godzyken/app/modules/user_model/controllers/user_model_controller.dart';
 
 import '../controllers/dashboard_controller.dart';
 
@@ -8,5 +9,7 @@ class DashboardBinding extends Bindings {
     Get.lazyPut<DashboardController>(
       () => DashboardController(),
     );
+    Get.lazyPut<UserModelController>(
+        () => UserModelController(repository: Get.find()));
   }
 }

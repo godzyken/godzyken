@@ -11,10 +11,12 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get/get.dart';
+import 'package:getxfire/getxfire.dart';
 import 'package:godzyken/app/modules/home/controllers/home_controller.dart';
 import 'package:godzyken/app/modules/home/domain/adapter/adapter.dart';
 import 'package:godzyken/app/modules/home/domain/entity/user_model.dart';
 import 'package:matcher/matcher.dart' as m;
+
 
 class MockRepository implements IHomeRepository {
   @override
@@ -45,6 +47,19 @@ class MockRepository implements IHomeRepository {
     }
 
     return Future<UserModel>.error('error');
+  }
+
+  @override
+  Future<List<UserModel>> getUserModels() async {
+    await Future.delayed(Duration(milliseconds: 100));
+    var list = <UserModel>[].obs;
+    for (var e in list) {
+      if (e.id != null) {
+        return UserModel.listFromJson(e);
+      }
+      return list;
+    }
+    return UserModel.listFromJson(list);
   }
 }
 
@@ -157,9 +172,7 @@ void main() {
       print('onClose');
     },
   );*/
-  /*  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-
-
+    testWidgets('Counter increments smoke test', (WidgetTester tester) async {
 
     // Build our app and trigger a frame.
     await tester.pumpWidget(const GetMaterialApp());
@@ -175,7 +188,7 @@ void main() {
     // Verify that our counter has incremented.
     expect(find.text('0'), findsNothing);
     expect(find.text('1'), findsOneWidget);
-  });*/
+  });
 }
 
 class TestController extends GetxController {

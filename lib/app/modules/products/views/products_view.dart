@@ -43,8 +43,11 @@ class ProductsView extends GetView<ProductsController> {
                             itemCount: controller.products.length,
                             itemBuilder: (context, image) {
                               final img = controller.products[image];
-                              return Image(
-                                  image: NetworkImage(img.user!.avatarUrl, headers: Get.arguments['user']));
+                             if (img != null) {
+                               return Image(
+                                   image: NetworkImage(img.user!.avatarUrl, headers: Get.arguments['user']));
+                             }
+                             return ImageIcon(img.user!.avatarUrl);
                             }),
                       ),
                     );

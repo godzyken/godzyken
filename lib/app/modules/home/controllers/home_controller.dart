@@ -13,11 +13,18 @@ class HomeController extends SuperController<UserModel> {
   NavigatorState get router => navigatorkey.currentState!;
 
   final count = 0.obs;
+  Worker? worker;
+
   @override
   void onInit() {
     super.onInit();
 
     append(() => homeRepository.getUsers);
+
+    worker = ever(count, (value) {
+      print('counter changed to: $value');
+      if (value == 10) worker!.dispose();
+    }, condition: () => count > 5);
   }
 
   UserModel getUserById(String id) {

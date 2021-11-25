@@ -9,6 +9,8 @@ import 'package:godzyken/app/modules/user_model/providers/user_provider.dart';
 class UserModelController extends SuperController<List<UserModel>> {
   UserModelController({required this.repository, iUserModelRepository});
 
+  final auth = GetxFire.auth;
+
   final userProvider = UserModelProvider();
   final _userModel = UserModel().obs;
   final IHomeRepository repository;
@@ -25,6 +27,7 @@ class UserModelController extends SuperController<List<UserModel>> {
     super.onInit();
 
     append(() => repository.getUserModels);
+    Get.log('UserModel Create : ${user!.id}');
   }
 
   @override
@@ -35,7 +38,10 @@ class UserModelController extends SuperController<List<UserModel>> {
   }
 
   @override
-  void onClose() {}
+  void onClose() {
+    super.onClose();
+    Get.log('UserModel close with id: ${user!.id}');
+  }
 
   @override
   void onDetached() {

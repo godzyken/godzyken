@@ -18,6 +18,7 @@ class DashboardView extends GetView<DashboardController> {
                 style: TextStyle(fontSize: 20),
               ),
               Text('Time: ${controller.now.value.toString()}'),
+              Text('auth: ${controller.auth.toString()}'),
             ],
           ),
         ),

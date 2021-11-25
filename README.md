@@ -4,6 +4,10 @@ A new Flutter project.
 
 ## Getting Started
 
+flutter run -d chrome --profile --dart-define=FLUTTER_WEB_DEBUG_SHOW_SEMANTICS=true
+
+BOxuLil5fv-sLbsOYbP0fOGcR-3Hb0qy23d3A6-gsKRB50VmAwGSnoBRlmaR8JDx-9wTU2IPITsSYN50oPPxbks
+
 This project is a starting point for a Flutter application.
 
 A few resources to get you started if this is your first Flutter project:

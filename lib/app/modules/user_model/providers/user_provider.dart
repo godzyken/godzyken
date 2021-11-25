@@ -12,7 +12,7 @@ class UserModelProvider extends GetConnect implements IUserModelProvider {
       request.headers['Authorization'] = 'Bearer sdfsdfgsdfsdsdf12345678';
       return request;
     });
-    httpClient.baseUrl = 'YOUR-API-URL';
+    httpClient.baseUrl = 'https://firebase-dot-devsite-v2-prod.appspot.com';
   }
 
   @override
