@@ -1,33 +1,17 @@
-import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:getxfire/getxfire.dart';
-import 'package:godzyken/app/modules/home/domain/adapter/adapter.dart';
-import 'package:godzyken/app/modules/home/domain/entity/user_model.dart';
-import 'package:godzyken/app/modules/user_model/providers/user_provider.dart';
 
 
-class UserModelController extends SuperController<List<UserModel>> {
-  UserModelController({required this.repository, iUserModelRepository});
+class UserModelController extends GetxController {
+  UserModelController(this.userId);
 
-  final auth = GetxFire.auth;
-
-  final userProvider = UserModelProvider();
-  final _userModel = UserModel().obs;
-  final IHomeRepository repository;
-  final navigatorKey = GlobalKey<NavigatorState>();
-  NavigatorState get router => navigatorKey.currentState!;
-
-  set user(UserModel? value) => _userModel.value = value!;
-
-  UserModel? get user => _userModel.value;
-
+  String? userId;
 
   @override
   void onInit() {
     super.onInit();
 
-    append(() => repository.getUserModels);
-    Get.log('UserModel Create : ${user!.id}');
+    Get.log('UserModel Create : ${userId}');
   }
 
   @override
@@ -40,7 +24,7 @@ class UserModelController extends SuperController<List<UserModel>> {
   @override
   void onClose() {
     super.onClose();
-    Get.log('UserModel close with id: ${user!.id}');
+    Get.log('UserModel close with id: $userId');
   }
 
   @override
@@ -64,19 +48,18 @@ class UserModelController extends SuperController<List<UserModel>> {
   }
 
   void clear() {
-    _userModel.value = UserModel();
   }
 
-  UserModel getUserById(String id) {
-    final index = Set.identity();
-    if (index == state!.first.id) {
-      return UserModel(id: index);
-    }
+  // UserModel getUserById(String id) {
+  //   final index = Set.identity();
+  //   if (index == state!.first.id) {
+  //     return UserModel(id: index);
+  //   }
+  //
+  //   return UserModel(login: state!.first.login);
+  // }
 
-    return UserModel(login: state!.first.login);
-  }
-
-  updateUserEmail(String? newValue) {
+  /*updateUserEmail(String? newValue) {
     _userModel.update((userModel) {
       userModel!.email = newValue;
     });
@@ -176,5 +159,5 @@ class UserModelController extends SuperController<List<UserModel>> {
     update();
 
     print('New user bio : ${_userModel.value.bio}');
-  }
+  }*/
 }

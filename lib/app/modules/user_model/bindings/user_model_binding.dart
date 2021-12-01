@@ -9,9 +9,13 @@ class UserModelBinding extends Bindings {
   @override
   void dependencies() {
     Get.lazyPut<UserModelController>(
-      () => UserModelController(repository: Get.find()),
+      () => UserModelController(Get.parameters['productId'] ?? ''),
     );
-    Get.lazyPut<IUserModelProvider>(() => UserModelProvider(), );
-    Get.lazyPut<IHomeRepository>(() => UserModelRepository(provider: Get.find()), );
+    Get.lazyPut<IUserModelProvider>(
+      () => UserModelProvider(),
+    );
+    Get.lazyPut<IHomeRepository>(
+      () => UserModelRepository(provider: Get.find()),
+    );
   }
 }

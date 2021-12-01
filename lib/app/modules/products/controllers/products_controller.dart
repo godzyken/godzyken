@@ -1,13 +1,12 @@
-
 import 'package:get/get.dart';
 import 'package:godzyken/models/demo_product.dart';
+import 'package:godzyken/services/products_service.dart';
 
 class ProductsController extends GetxController {
-  final products = <DemoProduct>[].obs;
+  final products = <DemoProduct?>[].obs;
   final demoProduct = DemoProduct().obs;
 
   var hasUser = false.obs;
-
 
   void loadDemoProductsFromSomeWhere() {
     products.add(
@@ -19,6 +18,19 @@ class ProductsController extends GetxController {
     );
   }
 
+  void fetchProducts() async {
+    var demos = await ProductsService.fetchProducts();
+    if (demos != null) {
+      products.value = demos;
+
+      products.addIf(
+          demos,
+          DemoProduct(
+              id: DateTime.now().millisecondsSinceEpoch.toString(),
+              name: demos.single!.name,
+              user: demos.single!.rx.name));
+    }
+  }
 
   @override
   void onInit() {
@@ -27,18 +39,16 @@ class ProductsController extends GetxController {
     Get.log('Product controller initialized');
   }
 
-
-
   dialogError(String? msg) => Get.defaultDialog(
-    title: 'Error user not found',
-    middleText: msg!,
-  );
+        title: 'Error user not found',
+        middleText: msg!,
+      );
 
   @override
   void onReady() {
     super.onReady();
     loadDemoProductsFromSomeWhere();
-
+    fetchProducts();
   }
 
   @override

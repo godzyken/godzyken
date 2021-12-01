@@ -22,7 +22,8 @@ class DrawerView extends GetView {
               Get.rootDelegate.toNamed(Routes.HOME);
               //to close the drawer
 
-              Navigator.of(context).pop();
+              // Navigator.of(context).pop();
+              Get.nestedKey('/home');
             },
           ),
           ListTile(
@@ -31,7 +32,8 @@ class DrawerView extends GetView {
               Get.rootDelegate.toNamed(Routes.SETTINGS);
               //to close the drawer
 
-              Navigator.of(context).pop();
+              // Navigator.of(context).pop();
+              Get.toNamed('/settings');
             },
           ),
           if (AuthService.to.isLoggedInValue)
@@ -47,7 +49,8 @@ class DrawerView extends GetView {
                 Get.rootDelegate.toNamed(Routes.LOGIN);
                 //to close the drawer
 
-                Navigator.of(context).pop();
+                // Navigator.of(context).pop();
+                Get.toNamed('/login');
               },
             ),
           if (!AuthService.to.isLoggedInValue)
@@ -62,7 +65,8 @@ class DrawerView extends GetView {
                 Get.rootDelegate.toNamed(Routes.LOGIN);
                 //to close the drawer
 
-                Navigator.of(context).pop();
+                // Navigator.of(context).pop();
+                Get.offAndToNamed('/login');
               },
             ),
         ],

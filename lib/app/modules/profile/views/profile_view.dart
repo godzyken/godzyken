@@ -9,43 +9,55 @@ class ProfileView extends GetView<ProfileController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.amber,
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
+      body:Column(
           children: [
-            const Text(
-              'ProfileView is working',
-              style: TextStyle(fontSize: 20),
-            ),
             const Hero(
               tag: 'heroLogo',
               child: FlutterLogo(),
             ),
-            MaterialButton(
-              child: const Text('Show a test dialog'),
-              onPressed: () {
-                //shows a dialog
-                Get.defaultDialog(
-                  title: 'Test Dialog !!',
-                  barrierDismissible: true,
-                );
-              },
-            ),
-            MaterialButton(
-              child: const Text('Show a test dialog in Home router outlet'),
-              onPressed: () {
-                //shows a dialog
-
-                Get.defaultDialog(
-                  title: 'Test Dialog In Home Outlet !!',
-                  barrierDismissible: true,
-                  navigatorKey: Get.nestedKey(Routes.HOME),
-                );
-              },
+            Expanded(
+                child: Obx(
+                    () => RefreshIndicator(
+                      onRefresh: () async {
+                        controller.users.clear();
+                        controller.loadProfilesFromSomeWhere();
+                      },
+                      child: ListView.builder(
+                        itemCount: controller.users.length,
+                        itemBuilder: (context, index) {
+                          final item = controller.users[index];
+                          return ListTile(
+                            onTap: () {
+                              Get.rootDelegate
+                                  .toNamed(Routes.USER_MODEL(item.id));
+                            },
+                            title: Text(item.name!),
+                            subtitle: Text(item.id!),
+/*
+                            leading: CircleAvatar(
+                              child: PageView.builder(
+                                  itemCount: controller.users.length,
+                                  itemBuilder: (context, image) {
+                                    final img = controller.users[image];
+                                    if (img != null) {
+                                      return Image(
+                                          image: NetworkImage(img.avatarUrl, headers: Get.arguments['user']));
+                                    }
+                                    return ImageIcon(img.avatarUrl);
+                                  }),
+                            ),
+*/
+                          );
+                        },
+                      ),
+                    ),
+                )
             )
           ],
         ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: controller.loadProfilesFromSomeWhere,
+        label: const Text('Add'),
       ),
     );
   }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
 import 'package:get/get.dart';
 import 'package:godzyken/app/routes/app_pages.dart';
@@ -34,9 +33,9 @@ class ProductsView extends GetView<ProductsController> {
                     return ListTile(
                       onTap: () {
                         Get.rootDelegate
-                            .toNamed(Routes.PRODUCT_DETAILS(item.id));
+                            .toNamed(Routes.PRODUCT_DETAILS(item!.id));
                       },
-                      title: Text(item.name!),
+                      title: Text(item!.name!),
                       subtitle: Text(item.id!),
                       leading: CircleAvatar(
                         child: PageView.builder(
@@ -45,9 +44,9 @@ class ProductsView extends GetView<ProductsController> {
                               final img = controller.products[image];
                              if (img != null) {
                                return Image(
-                                   image: NetworkImage(img.user!.avatarUrl, headers: Get.arguments['user']));
+                                   image: NetworkImage(img.rx.avatarUrl.value));
                              }
-                             return ImageIcon(img.user!.avatarUrl);
+                             return null!;
                             }),
                       ),
                     );

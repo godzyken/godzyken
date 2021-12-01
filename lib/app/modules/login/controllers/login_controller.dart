@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:getxfire/getxfire.dart';
-import 'package:godzyken/app/modules/user_model/controllers/user_model_controller.dart';
+import 'package:godzyken/app/modules/home/domain/entity/user_model.dart';
 
 class LoginController extends GetxController {
   //TODO: Implement LoginController
@@ -102,7 +102,7 @@ class LoginController extends GetxController {
       await GetxFire.firestore.updateData(
         collection: 'users',
         id: user!.uid,
-        data: Get.find<UserModelController>().user!.toJson(),
+        data: UserModel().toJson(),
         onError: (message) => dialogError(message),
         isErrorDialog: true,
       );
