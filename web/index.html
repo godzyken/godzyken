@@ -38,6 +38,16 @@
   <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-analytics.js"></script>
 
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YPQ71GLTZY"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-YPQ71GLTZY');
+  </script>
+
   <script>
       var firebaseConfig = {
         apiKey: "AIzaSyAYCbvhToZN7uEtnWGKItkCHuTrS0MyGGY",
@@ -47,7 +57,7 @@
         storageBucket: "flutterauth-demo.appspot.com",
         messagingSenderId: "485700706196",
         appId: "1:485700706196:android:220c90e7eca1ed9469b981",
-        measurementId: "3062913180",
+        measurementId: "G-YPQ71GLTZY",
       };
 
       // Initialize Firebase

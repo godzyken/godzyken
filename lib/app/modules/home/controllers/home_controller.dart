@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_web3/ethereum.dart';
 
 import 'package:get/get.dart';
 
@@ -15,9 +16,50 @@ class HomeController extends SuperController<UserModel> {
   final count = 0.obs;
   Worker? worker;
 
+  bool get isEnabled => Ethereum.ethereum != ethereum!;
+  bool get isInOperatingChain => currentChain == OPERATING_CHAIN;
+  bool get isConnected => isEnabled && currentAddress.isNotEmpty;
+
+  String currentAddress = '';
+  int currentChain = -1;
+
+  static const OPERATING_CHAIN = 56;
+
+  connect() async {
+    if (isEnabled) {
+      final accs = await ethereum!.requestAccount();
+      if(accs.isNotEmpty) currentAddress = accs.first;
+
+      currentChain = await ethereum!.getChainId();
+
+      update();
+    }
+  }
+
+  clear() {
+    currentAddress = '';
+    currentChain = -1;
+    update();
+  }
+
+  init() {
+    if (isEnabled) {
+      ethereum!.onAccountsChanged((accounts) {
+        clear();
+      });
+
+      ethereum!.onChainChanged((chainId) {
+        clear();
+      });
+    }
+    throw RxStatus.error(ethereum.toString());
+  }
+
   @override
   void onInit() {
     super.onInit();
+
+    init();
 
     append(() => homeRepository.getUsers);
 
