@@ -1,10 +1,13 @@
+
 import 'package:get/get.dart';
 import 'package:get/get_connect/http/src/exceptions/exceptions.dart';
 import 'package:getxfire/getxfire.dart';
 import 'package:godzyken/models/demo_product.dart';
+import 'package:godzyken/models/repo_git.dart';
 import 'package:godzyken/services/base_service.dart';
 
 class ProductsService extends BaseService {
+
   static Future<List<DemoProduct?>> fetchProducts() async {
     var client = GetHttpClient(
       userAgent: 'getx-client',
@@ -14,12 +17,16 @@ class ProductsService extends BaseService {
       followRedirects: true,
     );
 
-    var response = await client.get('http://www.godzyken.com', headers: {
+    var response = await client.get('https://www.godzyken.com', headers: {
       "Accept": "application/json",
       "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Headers": "Origin,Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,locale",
-      "Access-Control-Allow-Methods": "POST, OPTIONS"
+      "Access-Control-Allow-Credentials": "true",
+      "Access-Control-Allow-Headers": "Origin, Content-Type, X-Amz-Date, Authorization, X-Api-Key, X-Amz-Security-Token, locale, X-Requested-With",
+      "Access-Control-Allow-Methods": "POST, GET, OPTIONS, HEAD, PUT"
     });
+
+    print('Reponse StatuCode: ${response.statusCode}');
+    print('Reponse Body: ${response.body}');
 
     if (client.errorSafety) {
       try {
@@ -29,6 +36,59 @@ class ProductsService extends BaseService {
           if (response.statusCode == 200) {
             var jsonString = response.body;
             return demoProductFromJson(jsonString);
+          }
+          return response.body['results'];
+        }
+      } on GetHttpException catch (code, msg) {
+        if (response.statusCode == 401) {
+          throw GetHttpException(code.message);
+        }
+        if (response.statusCode == 404) {
+          throw GetHttpException(code.message);
+        }
+        if (response.statusCode == 500) {
+          throw GetHttpException(code.message);
+        }
+
+        print('Error message : $msg');
+
+        return Future.value();
+      }
+    } else {
+      return null!;
+    }
+  }
+
+  static Future<List<Repo?>> fetchRepositories() async {
+    var client = GetHttpClient(
+      userAgent: 'getx-client',
+      timeout: const Duration(seconds: 8),
+      withCredentials: true,
+      sendUserAgent: false,
+      followRedirects: true,
+    );
+
+    var response = await client.get('https://api.github.com', headers: {
+      "Accept": "application/json",
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Credentials": "true",
+      "Access-Control-Allow-Headers": "Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, X-GitHub-OTP, X-Requested-With",
+      "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+      "Access-Control-Allow-Methods": "POST, GET, OPTIONS, HEAD, PUT",
+      "Access-Control-Max-Age": "86400"
+    });
+
+    print('Reponse StatuCode: ${response.statusCode}');
+    print('Reponse Body: ${response.body}');
+
+    if (client.errorSafety) {
+      try {
+        if (response.status.hasError) {
+          return Future.error(response.statusText!);
+        } else {
+          if (response.statusCode == 200) {
+            var jsonString = response.body;
+            return repositoriesFromJson(jsonString);
           }
           return response.body['results'];
         }

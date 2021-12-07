@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:godzyken/models/demo_product.dart';
+import 'package:godzyken/models/repo_git.dart';
 import 'package:godzyken/services/products_service.dart';
 
 class ProductsController extends GetxController {

@@ -17,8 +17,7 @@ class BaseService extends GetConnect {
       'vary' : 'Access-Control-Request-Headers',
     };
 
-
-    httpClient.baseUrl = "http://www.godzyken.com";
+    httpClient.baseUrl = "https://www.godzyken.com";
     httpClient.defaultContentType = "application/json";
     httpClient.timeout = const Duration(seconds: 8);
 
@@ -56,7 +55,6 @@ class BaseService extends GetConnect {
 
     super.onInit();
   }
-
 
   /// for making socket request
   @override

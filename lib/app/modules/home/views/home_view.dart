@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:godzyken/app/modules/shared/extentions.dart';
 import 'package:godzyken/app/routes/app_pages.dart';
 
 import '../controllers/home_controller.dart';
@@ -22,11 +21,9 @@ class HomeView extends GetView<HomeController> {
           currentIndex = 1;
         }
 
-
         return GetBuilder<HomeController>(
             init: HomeController(homeRepository: Get.find()),
-            builder: (h) =>
-                Scaffold(
+            builder: (h) => Scaffold(
                   body: GetRouterOutlet(
                     initialRoute: Routes.DASHBOARD,
                     key: Get.nestedKey(Routes.HOME),
@@ -65,8 +62,7 @@ class HomeView extends GetView<HomeController> {
                       ),
                     ],
                   ),
-                )
-        );
+                ));
       },
     );
   }

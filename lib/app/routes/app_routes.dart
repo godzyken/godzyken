@@ -9,6 +9,7 @@ abstract class Routes {
   static const PRODUCTS = _Paths.HOME + _Paths.PRODUCTS;
   static const DASHBOARD = _Paths.HOME + _Paths.DASHBOARD;
   static const SETTINGS = _Paths.SETTINGS;
+  static const REPOS_GIT = _Paths.HOME + _Paths.REPOS_GIT;
   static const LOGIN = _Paths.LOGIN;
 
   static String LOGIN_THEN(String? afterSuccessfulLogin) =>
@@ -17,7 +18,7 @@ abstract class Routes {
   static String PRODUCT_DETAILS(String? productId) => '$PRODUCTS/$productId';
 
   static String USER_MODEL(String? userId) => '$PROFILE/$userId';
-
+  static String REPO_DETAILS(String? name) => '$REPOS_GIT/$name';
 }
 
 abstract class _Paths {
@@ -29,4 +30,6 @@ abstract class _Paths {
   static const SETTINGS = '/settings';
   static const LOGIN = '/login';
   static const DASHBOARD = '/dashboard';
+  static const REPOS_GIT = '/repos-git';
+  static const REPO_DETAILS = '/:name';
 }

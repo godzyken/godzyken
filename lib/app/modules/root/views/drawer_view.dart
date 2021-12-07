@@ -33,7 +33,17 @@ class DrawerView extends GetView {
               //to close the drawer
 
               // Navigator.of(context).pop();
-              Get.toNamed('/settings');
+              Get.nestedKey('/settings');
+            },
+          ),
+          ListTile(
+            title: const Text('Repositories'),
+            onTap: () {
+              Get.rootDelegate.toNamed(Routes.REPOS_GIT);
+              //to close the drawer
+
+              // Navigator.of(context).pop();
+              Get.nestedKey('/repos-git');
             },
           ),
           if (AuthService.to.isLoggedInValue)
@@ -50,7 +60,7 @@ class DrawerView extends GetView {
                 //to close the drawer
 
                 // Navigator.of(context).pop();
-                Get.toNamed('/login');
+                Get.nestedKey('/login');
               },
             ),
           if (!AuthService.to.isLoggedInValue)

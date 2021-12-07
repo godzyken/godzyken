@@ -1,9 +1,16 @@
 import 'package:get/get.dart';
 import 'package:getxfire/getxfire.dart';
+import 'package:godzyken/app/modules/home/domain/entity/user_model.dart';
 
 
 class UserModelController extends GetxController {
   UserModelController(this.userId);
+
+  final Rx<UserModel?> _userModel = UserModel().obs;
+
+  UserModel? get user => _userModel.value;
+
+  set user(UserModel? value) => _userModel.value = value;
 
   String? userId;
 
@@ -48,6 +55,7 @@ class UserModelController extends GetxController {
   }
 
   void clear() {
+    _userModel.value = UserModel();
   }
 
   // UserModel getUserById(String id) {
