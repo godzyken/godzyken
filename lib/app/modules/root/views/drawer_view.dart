@@ -10,11 +10,18 @@ class DrawerView extends GetView {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      backgroundColor: Colors.greenAccent,
       child: Column(
         children: [
           Container(
             height: 100,
-            color: Colors.red,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('image/digital_transf.jpg'),
+                fit: BoxFit.fill,
+              ),
+              shape: BoxShape.rectangle,
+            ),
           ),
           ListTile(
             title: const Text('Home'),

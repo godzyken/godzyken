@@ -14,21 +14,26 @@ class RootView extends GetView<RootController> {
       builder: (context, delegate, current) {
         final title = current?.location;
         return Scaffold(
+          extendBodyBehindAppBar: true,
           drawer: const DrawerView(),
           appBar: AppBar(
             title: Text(title ?? ''),
             centerTitle: true,
+            backgroundColor: Colors.transparent,
           ),
           body: Container(
-              padding: const EdgeInsets.only(
-                  left: 200.0, right: 200.0, top: 200.0, bottom: 200.0),
-              child: GetRouterOutlet(
-                initialRoute: Routes.HOME,
-                anchorRoute: '/',
-                filterPages: (afterAnchor) {
-                  return afterAnchor.take(1);
-                },
+            padding: const EdgeInsets.only(
+                left: 200.0, right: 200.0, top: 200.0, bottom: 200.0),
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('image/godzy_logo.png'),
+                fit: BoxFit.fill,
               ),
+              shape: BoxShape.rectangle,
+            ),
+            child: GetRouterOutlet(
+              initialRoute: Routes.HOME,
+            ),
           ),
         );
       },

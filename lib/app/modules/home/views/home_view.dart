@@ -29,6 +29,7 @@ class HomeView extends GetView<HomeController> {
                     key: Get.nestedKey(Routes.HOME),
                   ),
                   bottomNavigationBar: BottomNavigationBar(
+                    backgroundColor: Colors.amberAccent,
                     currentIndex: currentIndex,
                     onTap: (value) {
                       switch (value) {
@@ -49,16 +50,19 @@ class HomeView extends GetView<HomeController> {
                       BottomNavigationBarItem(
                         icon: Icon(Icons.home),
                         label: 'Home',
+                        backgroundColor: Colors.deepPurple
                       ),
                       // _Paths.HOME + Routes.PROFILE
                       BottomNavigationBarItem(
                         icon: Icon(Icons.account_box_rounded),
                         label: 'Profile',
+                        backgroundColor: Colors.limeAccent
                       ),
                       // _Paths.HOME + _Paths.PRODUCTS
                       BottomNavigationBarItem(
                         icon: Icon(Icons.account_box_rounded),
                         label: 'Products',
+                        backgroundColor: Colors.cyanAccent
                       ),
                     ],
                   ),

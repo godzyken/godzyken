@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:godzyken/app/modules/products/providers/repository_provider.dart';
+import 'package:godzyken/app/modules/products/repository_model.dart';
 import 'package:godzyken/models/demo_product.dart';
 import 'package:godzyken/models/repo_git.dart';
 import 'package:godzyken/services/products_service.dart';
@@ -6,6 +8,8 @@ import 'package:godzyken/services/products_service.dart';
 class ProductsController extends GetxController {
   final products = <DemoProduct?>[].obs;
   final demoProduct = DemoProduct().obs;
+  final repositories = <Repository?>[].obs;
+  final repository = Repository().obs;
 
   var hasUser = false.obs;
 
@@ -33,6 +37,26 @@ class ProductsController extends GetxController {
     }
   }
 
+  void fetchRepo() async {
+    var repo = await RepositoryProvider().fetchRepository();
+    if (repo != null) {
+      repositories.value = repo;
+
+      for(var r in repositories) {
+        repositories.addIf(
+            r,
+            Repository(
+              id: r!.id,
+              name: r.name,
+              description: r.description,
+              createdAt: r.createdAt,
+            ));
+      }
+
+
+    }
+  }
+
   @override
   void onInit() {
     super.onInit();
@@ -48,8 +72,9 @@ class ProductsController extends GetxController {
   @override
   void onReady() {
     super.onReady();
-    loadDemoProductsFromSomeWhere();
-    fetchProducts();
+    //loadDemoProductsFromSomeWhere();
+    //fetchProducts();
+    fetchRepo();
   }
 
   @override

@@ -1,17 +1,13 @@
-import 'dart:io';
-
-import 'dart:convert' show json, utf8;
-
-import 'package:date_format/date_format.dart';
 import 'package:get/get.dart';
 import 'package:godzyken/models/repo_git.dart';
 
 import '../github_api_model.dart';
 
 class GithubApiProvider extends GetConnect {
-  static final GetHttpClient _httpClient = GetHttpClient();
   static final String? _url = "api.github.com";
-
+  static final _httpClient = GetHttpClient(
+    baseUrl: _url
+  );
 
   @override
   void onInit() {
@@ -36,44 +32,12 @@ class GithubApiProvider extends GetConnect {
       await delete('githubapi/$id');
 
   static Future<List<Repo?>> fetchRepo() async {
-    final lastWeek = DateTime.now().subtract(Duration(days: 7));
-    final formattedDate = formatDate(lastWeek, [yyyy, '-', mm, '-', dd]);
-
-    final uri = Uri.https(_url!, 'search/repositories', {
-      'q': 'created:>$formattedDate',
-      'sort': 'stars',
-      'order': 'desc',
-      'page': '0',
-      'per_page': '25'
-    });
-
-    final jsonResponse = await _getJson(uri);
-    if (jsonResponse == null) {
-      return null!;
-    }
-    if (jsonResponse['errors'] != null) {
-      return null!;
-    }
-    if (jsonResponse['items'] == null) {
-      return []..length;
-    }
-
-    return Repo.mapJSONStringToList(jsonResponse['items']);
-  }
-
-  static Future<Map<String, dynamic>> _getJson(Uri? uri) async {
-    try {
-      final httpRequest = await _httpClient.get(uri!.path);
-      final httpResponse = await httpRequest.body;
-      if (httpResponse.statusCode != HttpStatus.ok) {
-        return null!;
-      }
-
-      final responseBody = await httpResponse.transform(utf8.decoder).join();
-      return json.decode(responseBody);
-    } on Exception catch (e) {
-      print('$e');
-      return null!;
+    var res = await _httpClient.get('/users/godzyken/repos');
+    if (res.statusCode == 200) {
+      var jsonString = res.body;
+      return repositoriesFromJson(jsonString);
+    } else {
+      return Future.error(res.statusText!);
     }
   }
 

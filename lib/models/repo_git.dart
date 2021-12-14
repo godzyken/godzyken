@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:get/get.dart';
+import 'package:godzyken/app/modules/repos_git/github_api_model.dart';
 
 class RxRepo {
   final htmlUrl = 'https://github.com/godzyken/godzyken'.obs;
@@ -9,6 +10,7 @@ class RxRepo {
   final description = 'flutter project'.obs;
   final name = 'godzyken'.obs;
   final owner = 'login'.obs;
+  final repo = GithubApi().obs;
 }
 
 class Repo {
@@ -19,9 +21,13 @@ class Repo {
     description,
     name,
     owner,
+    repo,
   });
 
   final rx = RxRepo();
+
+  get repo => rx.repo.value;
+  set repo(value) => rx.repo.value = value;
 
   get name => rx.name.value;
   set name(value) => rx.name.value = value;
@@ -48,6 +54,7 @@ class Repo {
     description = json['description'];
     htmlUrl = json['htmlUrl'];
     owner = json['owner'];
+    repo = json['repo'];
   }
 
   Map<String, dynamic> toJson() {
@@ -58,6 +65,7 @@ class Repo {
     data['description'] = description;
     data['htmlUrl'] = htmlUrl;
     data['owner'] = owner;
+    data['repo'] = repo;
     return data;
   }
 

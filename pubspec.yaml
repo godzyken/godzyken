@@ -21,6 +21,14 @@ dev_dependencies:
   flutter_test: 
     sdk: flutter
 
-flutter: 
+flutter:
+  assets:
+    - assets/image/carrelage_background.jpg
+    - assets/image/godzy_logo.png
+    - assets/image/logo_bat_services.png
+    - assets/image/digital-transformation-teaser.jpg
+    - assets/image/digital_transf.jpg
+    - assets/image/maison_indiv.png
+    - assets/image/appartement.png
   uses-material-design: true
 

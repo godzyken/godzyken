@@ -23,32 +23,33 @@ class ProductsView extends GetView<ProductsController> {
             child: Obx(
               () => RefreshIndicator(
                 onRefresh: () async {
-                  controller.products.clear();
+                  // controller.products.clear();
+                  controller.repositories.clear();
                   controller.loadDemoProductsFromSomeWhere();
                 },
                 child: ListView.builder(
-                  itemCount: controller.products.length,
+                  itemCount: controller.repositories.length,
                   itemBuilder: (context, index) {
-                    final item = controller.products[index];
+                    final item = controller.repositories[index];
                     return ListTile(
                       onTap: () {
                         Get.rootDelegate
                             .toNamed(Routes.PRODUCT_DETAILS(item!.id));
                       },
                       title: Text(item!.name!),
-                      subtitle: Text(item.id!),
-                      leading: CircleAvatar(
-                        child: PageView.builder(
-                            itemCount: controller.products.length,
-                            itemBuilder: (context, image) {
-                              final img = controller.products[image];
-                             if (img != null) {
-                               return Image(
-                                   image: NetworkImage(img.rx.avatarUrl.value));
-                             }
-                             return null!;
-                            }),
-                      ),
+                      subtitle: Text(item.createdAt!),
+                      // leading: CircleAvatar(
+                      //   child: PageView.builder(
+                      //       itemCount: controller.repositories.length,
+                      //       itemBuilder: (context, image) {
+                      //         final img = controller.repositories[image];
+                      //        if (img != null) {
+                      //          return Image(
+                      //              image: NetworkImage(img..value));
+                      //        }
+                      //        return null!;
+                      //       }),
+                      // ),
                     );
                   },
                 ),
