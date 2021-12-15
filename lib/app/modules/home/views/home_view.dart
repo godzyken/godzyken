@@ -24,6 +24,7 @@ class HomeView extends GetView<HomeController> {
         return GetBuilder<HomeController>(
             init: HomeController(homeRepository: Get.find()),
             builder: (h) => Scaffold(
+                  backgroundColor: Colors.transparent,
                   body: GetRouterOutlet(
                     initialRoute: Routes.DASHBOARD,
                     key: Get.nestedKey(Routes.HOME),
@@ -48,22 +49,25 @@ class HomeView extends GetView<HomeController> {
                     items: const [
                       // _Paths.HOME + [Empty]
                       BottomNavigationBarItem(
-                        icon: Icon(Icons.home),
-                        label: 'Home',
-                        backgroundColor: Colors.deepPurple
-                      ),
+                          icon: Icon(Icons.home),
+                          label: 'Home',
+                          backgroundColor: Colors.deepPurple),
                       // _Paths.HOME + Routes.PROFILE
                       BottomNavigationBarItem(
-                        icon: Icon(Icons.account_box_rounded),
-                        label: 'Profile',
-                        backgroundColor: Colors.limeAccent
-                      ),
+                          icon: Icon(Icons.account_box_rounded),
+                          label: 'Profile',
+                          backgroundColor: Colors.limeAccent),
                       // _Paths.HOME + _Paths.PRODUCTS
                       BottomNavigationBarItem(
-                        icon: Icon(Icons.account_box_rounded),
-                        label: 'Products',
-                        backgroundColor: Colors.cyanAccent
-                      ),
+                          icon: Image(
+                            image: AssetImage('image/github_logo.png'),
+                            height: 30.0,
+                            width: 40.0,
+                            fit: BoxFit.contain,
+                            alignment: Alignment.center,
+                          ),
+                          label: 'Products',
+                          backgroundColor: Colors.cyanAccent),
                     ],
                   ),
                 ));

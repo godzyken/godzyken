@@ -1,41 +1,13 @@
 import 'package:get/get.dart';
 import 'package:godzyken/app/modules/products/providers/repository_provider.dart';
 import 'package:godzyken/app/modules/products/repository_model.dart';
-import 'package:godzyken/models/demo_product.dart';
-import 'package:godzyken/models/repo_git.dart';
-import 'package:godzyken/services/products_service.dart';
 
 class ProductsController extends GetxController {
-  final products = <DemoProduct?>[].obs;
-  final demoProduct = DemoProduct().obs;
   final repositories = <Repository?>[].obs;
   final repository = Repository().obs;
+  Owner? get owner => repositories.single!.owner;
 
   var hasUser = false.obs;
-
-  void loadDemoProductsFromSomeWhere() {
-    products.add(
-      DemoProduct(
-        user: demoProduct.value.user,
-        name: 'Product added on: ${DateTime.now().toString()}',
-        id: DateTime.now().millisecondsSinceEpoch.toString(),
-      ),
-    );
-  }
-
-  void fetchProducts() async {
-    var demos = await ProductsService.fetchProducts();
-    if (demos != null) {
-      products.value = demos;
-
-      products.addIf(
-          demos,
-          DemoProduct(
-              id: DateTime.now().millisecondsSinceEpoch.toString(),
-              name: demos.single!.name,
-              user: demos.single!.rx.name));
-    }
-  }
 
   void fetchRepo() async {
     var repo = await RepositoryProvider().fetchRepository();
@@ -52,7 +24,6 @@ class ProductsController extends GetxController {
               createdAt: r.createdAt,
             ));
       }
-
 
     }
   }
@@ -72,22 +43,13 @@ class ProductsController extends GetxController {
   @override
   void onReady() {
     super.onReady();
-    //loadDemoProductsFromSomeWhere();
-    //fetchProducts();
     fetchRepo();
   }
 
   @override
   void onClose() {
-    Get.printInfo(info: 'Products: onClose');
+    Get.printInfo(info: 'Repositories: onClose');
     super.onClose();
   }
 
-  handleUser(isUser) {
-    if (isUser) {
-      demoProduct.value;
-      print('user ok' + '${demoProduct.value.user!}');
-    }
-    Get.snackbar('error', demoProduct.value.user!.obs.toString());
-  }
 }
