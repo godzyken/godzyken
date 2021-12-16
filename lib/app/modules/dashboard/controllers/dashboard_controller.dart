@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:get/get.dart';
+
 import 'package:godzyken/app/modules/user_model/controllers/user_model_controller.dart';
 
 class DashboardController extends GetxController {
@@ -10,7 +11,7 @@ class DashboardController extends GetxController {
     super.onReady();
     Timer.periodic(
       const Duration(seconds: 1),
-          (timer) {
+      (timer) {
         now.value = DateTime.now();
       },
     );

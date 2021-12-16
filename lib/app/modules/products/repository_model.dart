@@ -4,94 +4,94 @@ import 'package:get/get.dart';
 
 class RxRepository {
   final id = 161755286.obs;
-  final node_id = 'MDEwOlJlcG9zaXRvcnkxNjE3NTUyODY='.obs;
+  final nodeId = 'MDEwOlJlcG9zaXRvcnkxNjE3NTUyODY='.obs;
   final name = '24-01-GestionDUtilisateurs-SpringData'.obs;
-  final full_name = 'godzyken/24-01-GestionDUtilisateurs-SpringData'.obs;
+  final fullName = 'godzyken/24-01-GestionDUtilisateurs-SpringData'.obs;
   final private = false.obs;
   final owner = Owner().obs;
-  final html_url =
+  final htmlUrl =
       'https://github.com/godzyken/24-01-GestionDUtilisateurs-SpringData'.obs;
   final description = null?.obs;
   final fork = false.obs;
   final url =
       'https://api.github.com/repos/godzyken/24-01-GestionDUtilisateurs-SpringData'
           .obs;
-  final forks_url =
+  final forksUrl =
       'https://api.github.com/repos/godzyken/24-01-GestionDUtilisateurs-SpringData/forks'
           .obs;
-  final keys_url =
+  final keysUrl =
       'https://api.github.com/repos/godzyken/24-01-GestionDUtilisateurs-SpringData/keys{/key_id}'
           .obs;
-  final collaborators_url =
+  final collaboratorsUrl =
       'https://api.github.com/repos/godzyken/24-01-GestionDUtilisateurs-SpringData/collaborators{/collaborator}'
           .obs;
-  final teams_url =
+  final teamsUrl =
       'https://api.github.com/repos/godzyken/24-01-GestionDUtilisateurs-SpringData/teams'
           .obs;
-  final hooks_url =
+  final hooksUrl =
       'https://api.github.com/repos/godzyken/24-01-GestionDUtilisateurs-SpringData/hooks'
           .obs;
-  final issue_events_url =
+  final issueEventsUrl =
       'https://api.github.com/repos/godzyken/24-01-GestionDUtilisateurs-SpringData/issues/events{/number}'
           .obs;
-  final events_url =
+  final eventsUrl =
       'https://api.github.com/repos/godzyken/24-01-GestionDUtilisateurs-SpringData/events'
           .obs;
-  final assignees_url =
+  final assigneesUrl =
       'https://api.github.com/repos/godzyken/24-01-GestionDUtilisateurs-SpringData/assignees{/user}'
           .obs;
-  final branches_url =
+  final branchesUrl =
       'https://api.github.com/repos/godzyken/24-01-GestionDUtilisateurs-SpringData/branches{/branch}'
           .obs;
-  final tags_url =
+  final tagsUrl =
       'https://api.github.com/repos/godzyken/24-01-GestionDUtilisateurs-SpringData/tags'
           .obs;
-  final blobs_url =
+  final blobsUrl =
       'https://api.github.com/repos/godzyken/24-01-GestionDUtilisateurs-SpringData/git/blobs{/sha}'
           .obs;
-  final git_tags_url =
+  final gitTagsUrl =
       'https://api.github.com/repos/godzyken/24-01-GestionDUtilisateurs-SpringData/git/tags{/sha}'
           .obs;
-  final git_refs_url =
+  final gitRefsUrl =
       'https://api.github.com/repos/godzyken/24-01-GestionDUtilisateurs-SpringData/git/refs{/sha}'
           .obs;
-  final trees_url =
+  final treesUrl =
       'https://api.github.com/repos/godzyken/24-01-GestionDUtilisateurs-SpringData/git/trees{/sha}'
           .obs;
-  final statuses_url =
+  final statusesUrl =
       'https://api.github.com/repos/godzyken/24-01-GestionDUtilisateurs-SpringData/statuses/{sha}'
           .obs;
-  final languages_url =
+  final languagesUrl =
       'https://api.github.com/repos/godzyken/24-01-GestionDUtilisateurs-SpringData/languages'
           .obs;
-  final stargazers_url =
+  final stargazersUrl =
       'https://api.github.com/repos/godzyken/24-01-GestionDUtilisateurs-SpringData/stargazers'
           .obs;
-  final contributors_url =
+  final contributorsUrl =
       'https://api.github.com/repos/godzyken/24-01-GestionDUtilisateurs-SpringData/contributors'
           .obs;
-  final subscribers_url =
+  final subscribersUrl =
       'https://api.github.com/repos/godzyken/24-01-GestionDUtilisateurs-SpringData/subscribers'
           .obs;
-  final subscription_url =
+  final subscriptionUrl =
       'https://api.github.com/repos/godzyken/24-01-GestionDUtilisateurs-SpringData/subscription'
           .obs;
-  final commits_url =
+  final commitsUrl =
       'https://api.github.com/repos/godzyken/24-01-GestionDUtilisateurs-SpringData/commits{/sha}'
           .obs;
-  final git_commits_url =
+  final gitCommitsUrl =
       'https://api.github.com/repos/godzyken/24-01-GestionDUtilisateurs-SpringData/git/commits{/sha}'
           .obs;
-  final comments_url =
+  final commentsUrl =
       'https://api.github.com/repos/godzyken/24-01-GestionDUtilisateurs-SpringData/comments{/number}'
           .obs;
-  final issue_comment_url =
+  final issueCommentUrl =
       'https://api.github.com/repos/godzyken/24-01-GestionDUtilisateurs-SpringData/issues/comments{/number}'
           .obs;
-  final contents_url =
+  final contentsUrl =
       'https://api.github.com/repos/godzyken/24-01-GestionDUtilisateurs-SpringData/contents/{+path}'
           .obs;
-  final compare_url =
+  final compareUrl =
       'https://api.github.com/repos/godzyken/24-01-GestionDUtilisateurs-SpringData/compare/{base}...{head}'
           .obs;
   final mergesUrl =
@@ -172,17 +172,17 @@ class Repository {
 
   set id(value) => rx.id.value = value;
 
-  get nodeId => rx.node_id.value;
+  get nodeId => rx.nodeId.value;
 
-  set nodeId(value) => rx.node_id.value = value;
+  set nodeId(value) => rx.nodeId.value = value;
 
   get name => rx.name.value;
 
   set name(value) => rx.name.value = value;
 
-  get fullName => rx.full_name.value;
+  get fullName => rx.fullName.value;
 
-  set fullName(value) => rx.full_name.value = value;
+  set fullName(value) => rx.fullName.value = value;
 
   get private => rx.private.value;
 
@@ -192,9 +192,9 @@ class Repository {
 
   set owner(value) => rx.owner.value = value;
 
-  get htmlUrl => rx.html_url.value;
+  get htmlUrl => rx.htmlUrl.value;
 
-  set htmlUrl(value) => rx.html_url.value = value;
+  set htmlUrl(value) => rx.htmlUrl.value = value;
 
   get description => rx.description?.value;
 
@@ -208,109 +208,109 @@ class Repository {
 
   set url(value) => rx.url.value = value;
 
-  get forksUrl => rx.forks_url.value;
+  get forksUrl => rx.forksUrl.value;
 
-  set forksUrl(value) => rx.forks_url.value = value;
+  set forksUrl(value) => rx.forksUrl.value = value;
 
-  get keysUrl => rx.keys_url.value;
+  get keysUrl => rx.keysUrl.value;
 
-  set keysUrl(value) => rx.keys_url.value = value;
+  set keysUrl(value) => rx.keysUrl.value = value;
 
-  get collaboratorsUrl => rx.collaborators_url.value;
+  get collaboratorsUrl => rx.collaboratorsUrl.value;
 
-  set collaboratorsUrl(value) => rx.collaborators_url.value = value;
+  set collaboratorsUrl(value) => rx.collaboratorsUrl.value = value;
 
-  get teamsUrl => rx.teams_url.value;
+  get teamsUrl => rx.teamsUrl.value;
 
-  set teamsUrl(value) => rx.teams_url.value = value;
+  set teamsUrl(value) => rx.teamsUrl.value = value;
 
-  get hooksUrl => rx.hooks_url.value;
+  get hooksUrl => rx.hooksUrl.value;
 
-  set hooksUrl(value) => rx.hooks_url.value = value;
+  set hooksUrl(value) => rx.hooksUrl.value = value;
 
-  get issueEventsUrl => rx.issue_events_url.value;
+  get issueEventsUrl => rx.issueEventsUrl.value;
 
-  set issueEventsUrl(value) => rx.issue_events_url.value = value;
+  set issueEventsUrl(value) => rx.issueEventsUrl.value = value;
 
-  get eventsUrl => rx.events_url.value;
+  get eventsUrl => rx.eventsUrl.value;
 
-  set eventsUrl(value) => rx.events_url.value = value;
+  set eventsUrl(value) => rx.eventsUrl.value = value;
 
-  get assigneesUrl => rx.assignees_url.value;
+  get assigneesUrl => rx.assigneesUrl.value;
 
-  set assigneesUrl(value) => rx.assignees_url.value = value;
+  set assigneesUrl(value) => rx.assigneesUrl.value = value;
 
-  get branchesUrl => rx.branches_url.value;
+  get branchesUrl => rx.branchesUrl.value;
 
-  set branchesUrl(value) => rx.branches_url.value = value;
+  set branchesUrl(value) => rx.branchesUrl.value = value;
 
-  get tagsUrl => rx.tags_url.value;
+  get tagsUrl => rx.tagsUrl.value;
 
-  set tagsUrl(value) => rx.tags_url.value = value;
+  set tagsUrl(value) => rx.tagsUrl.value = value;
 
-  get blobsUrl => rx.blobs_url.value;
+  get blobsUrl => rx.blobsUrl.value;
 
-  set blobsUrl(value) => rx.blobs_url.value = value;
+  set blobsUrl(value) => rx.blobsUrl.value = value;
 
-  get gitTagsUrl => rx.git_tags_url.value;
+  get gitTagsUrl => rx.gitTagsUrl.value;
 
-  set gitTagsUrl(value) => rx.git_tags_url.value = value;
+  set gitTagsUrl(value) => rx.gitTagsUrl.value = value;
 
-  get gitRefsUrl => rx.git_refs_url.value;
+  get gitRefsUrl => rx.gitRefsUrl.value;
 
-  set gitRefsUrl(value) => rx.git_refs_url.value = value;
+  set gitRefsUrl(value) => rx.gitRefsUrl.value = value;
 
-  get treesUrl => rx.trees_url.value;
+  get treesUrl => rx.treesUrl.value;
 
-  set treesUrl(value) => rx.trees_url.value = value;
+  set treesUrl(value) => rx.treesUrl.value = value;
 
-  get statusesUrl => rx.statuses_url.value;
+  get statusesUrl => rx.statusesUrl.value;
 
-  set statusesUrl(value) => rx.statuses_url.value = value;
+  set statusesUrl(value) => rx.statusesUrl.value = value;
 
-  get languagesUrl => rx.languages_url.value;
+  get languagesUrl => rx.languagesUrl.value;
 
-  set languagesUrl(value) => rx.languages_url.value = value;
+  set languagesUrl(value) => rx.languagesUrl.value = value;
 
-  get stargazersUrl => rx.stargazers_url.value;
+  get stargazersUrl => rx.stargazersUrl.value;
 
-  set stargazersUrl(value) => rx.stargazers_url.value = value;
+  set stargazersUrl(value) => rx.stargazersUrl.value = value;
 
-  get contributorsUrl => rx.contributors_url.value;
+  get contributorsUrl => rx.contributorsUrl.value;
 
-  set contributorsUrl(value) => rx.contributors_url.value = value;
+  set contributorsUrl(value) => rx.contributorsUrl.value = value;
 
-  get subscribersUrl => rx.subscribers_url.value;
+  get subscribersUrl => rx.subscribersUrl.value;
 
-  set subscribersUrl(value) => rx.subscribers_url.value = value;
+  set subscribersUrl(value) => rx.subscribersUrl.value = value;
 
-  get subscriptionUrl => rx.subscription_url.value;
+  get subscriptionUrl => rx.subscriptionUrl.value;
 
-  set subscriptionUrl(value) => rx.subscription_url.value = value;
+  set subscriptionUrl(value) => rx.subscriptionUrl.value = value;
 
-  get commitsUrl => rx.commits_url.value;
+  get commitsUrl => rx.commitsUrl.value;
 
-  set commitsUrl(value) => rx.commits_url.value = value;
+  set commitsUrl(value) => rx.commitsUrl.value = value;
 
-  get gitCommitsUrl => rx.git_commits_url.value;
+  get gitCommitsUrl => rx.gitCommitsUrl.value;
 
-  set gitCommitsUrl(value) => rx.git_commits_url.value = value;
+  set gitCommitsUrl(value) => rx.gitCommitsUrl.value = value;
 
-  get commentsUrl => rx.comments_url.value;
+  get commentsUrl => rx.commentsUrl.value;
 
-  set commentsUrl(value) => rx.comments_url.value = value;
+  set commentsUrl(value) => rx.commentsUrl.value = value;
 
-  get issueCommentUrl => rx.issue_comment_url.value;
+  get issueCommentUrl => rx.issueCommentUrl.value;
 
-  set issueCommentUrl(value) => rx.issue_comment_url.value = value;
+  set issueCommentUrl(value) => rx.issueCommentUrl.value = value;
 
-  get contentsUrl => rx.contents_url.value;
+  get contentsUrl => rx.contentsUrl.value;
 
-  set contentsUrl(value) => rx.contents_url.value = value;
+  set contentsUrl(value) => rx.contentsUrl.value = value;
 
-  get compareUrl => rx.compare_url.value;
+  get compareUrl => rx.compareUrl.value;
 
-  set compareUrl(value) => rx.compare_url.value = value;
+  set compareUrl(value) => rx.compareUrl.value = value;
 
   get mergesUrl => rx.mergesUrl.value;
 
@@ -572,41 +572,41 @@ class Repository {
 
   Repository.fromJson(Map<String, dynamic> json) {
     id = json['id'];
-    nodeId = json['node_id'];
+    nodeId = json['nodeId'];
     name = json['name'];
-    fullName = json['full_name'];
+    fullName = json['fullName'];
     private = json['private'];
     owner = json['owner'] != null ? Owner?.fromJson(json['owner']) : null;
-    htmlUrl = json['html_url'];
+    htmlUrl = json['htmlUrl'];
     description = description ?? json['description'];
     fork = json['fork'];
     url = json['url'];
-    forksUrl = json['forks_url'];
-    keysUrl = json['keys_url'];
-    collaboratorsUrl = json['collaborators_url'];
-    teamsUrl = json['teams_url'];
-    hooksUrl = json['hooks_url'];
-    issueEventsUrl = json['issue_events_url'];
-    eventsUrl = json['events_url'];
-    assigneesUrl = json['assignees_url'];
-    branchesUrl = json['branches_url'];
-    tagsUrl = json['tags_url'];
-    blobsUrl = json['blobs_url'];
-    gitTagsUrl = json['git_tags_url'];
-    gitRefsUrl = json['git_refs_url'];
-    treesUrl = json['trees_url'];
-    statusesUrl = json['statuses_url'];
-    languagesUrl = json['languages_url'];
-    stargazersUrl = json['stargazers_url'];
-    contributorsUrl = json['contributors_url'];
-    subscribersUrl = json['subscribers_url'];
-    subscriptionUrl = json['subscription_url'];
-    commitsUrl = json['commits_url'];
-    gitCommitsUrl = json['git_commits_url'];
-    commentsUrl = json['comments_url'];
-    issueCommentUrl = json['issue_comment_url'];
-    contentsUrl = json['contents_url'];
-    compareUrl = json['compare_url'];
+    forksUrl = json['forksUrl'];
+    keysUrl = json['keysUrl'];
+    collaboratorsUrl = json['collaboratorsUrl'];
+    teamsUrl = json['teamsUrl'];
+    hooksUrl = json['hooksUrl'];
+    issueEventsUrl = json['issueEventsUrl'];
+    eventsUrl = json['eventsUrl'];
+    assigneesUrl = json['assigneesUrl'];
+    branchesUrl = json['branchesUrl'];
+    tagsUrl = json['tagsUrl'];
+    blobsUrl = json['blobsUrl'];
+    gitTagsUrl = json['gitTagsUrl'];
+    gitRefsUrl = json['gitRefsUrl'];
+    treesUrl = json['treesUrl'];
+    statusesUrl = json['statusesUrl'];
+    languagesUrl = json['languagesUrl'];
+    stargazersUrl = json['stargazersUrl'];
+    contributorsUrl = json['contributorsUrl'];
+    subscribersUrl = json['subscribersUrl'];
+    subscriptionUrl = json['subscriptionUrl'];
+    commitsUrl = json['commitsUrl'];
+    gitCommitsUrl = json['gitCommitsUrl'];
+    commentsUrl = json['commentsUrl'];
+    issueCommentUrl = json['issueCommentUrl'];
+    contentsUrl = json['contentsUrl'];
+    compareUrl = json['compareUrl'];
     mergesUrl = json['merges_url'];
     archiveUrl = json['archive_url'];
     downloadsUrl = json['downloads_url'];
@@ -656,45 +656,45 @@ class Repository {
   Map<String, dynamic> toJson() {
     final data = <String, dynamic>{};
     data['id'] = id;
-    data['node_id'] = nodeId;
+    data['nodeId'] = nodeId;
     data['name'] = name;
-    data['full_name'] = fullName;
+    data['fullName'] = fullName;
     data['private'] = private;
     if (owner != null) {
       data['owner'] = owner!.toJson();
     }
-    data['html_url'] = htmlUrl;
+    data['htmlUrl'] = htmlUrl;
     if (description != null) {
       data['description'] = description;
     }
     data['fork'] = fork;
     data['url'] = url;
-    data['forks_url'] = forksUrl;
-    data['keys_url'] = keysUrl;
-    data['collaborators_url'] = collaboratorsUrl;
-    data['teams_url'] = teamsUrl;
-    data['hooks_url'] = hooksUrl;
-    data['issue_events_url'] = issueEventsUrl;
-    data['events_url'] = eventsUrl;
-    data['assignees_url'] = assigneesUrl;
-    data['branches_url'] = branchesUrl;
-    data['tags_url'] = tagsUrl;
-    data['blobs_url'] = blobsUrl;
-    data['git_tags_url'] = gitTagsUrl;
-    data['git_refs_url'] = gitRefsUrl;
-    data['trees_url'] = treesUrl;
-    data['statuses_url'] = statusesUrl;
-    data['languages_url'] = languagesUrl;
-    data['stargazers_url'] = stargazersUrl;
-    data['contributors_url'] = contributorsUrl;
-    data['subscribers_url'] = subscribersUrl;
-    data['subscription_url'] = subscriptionUrl;
-    data['commits_url'] = commitsUrl;
-    data['git_commits_url'] = gitCommitsUrl;
-    data['comments_url'] = commentsUrl;
-    data['issue_comment_url'] = issueCommentUrl;
-    data['contents_url'] = contentsUrl;
-    data['compare_url'] = compareUrl;
+    data['forksUrl'] = forksUrl;
+    data['keysUrl'] = keysUrl;
+    data['collaboratorsUrl'] = collaboratorsUrl;
+    data['teamsUrl'] = teamsUrl;
+    data['hooksUrl'] = hooksUrl;
+    data['issueEventsUrl'] = issueEventsUrl;
+    data['eventsUrl'] = eventsUrl;
+    data['assigneesUrl'] = assigneesUrl;
+    data['branchesUrl'] = branchesUrl;
+    data['tagsUrl'] = tagsUrl;
+    data['blobsUrl'] = blobsUrl;
+    data['gitTagsUrl'] = gitTagsUrl;
+    data['gitRefsUrl'] = gitRefsUrl;
+    data['treesUrl'] = treesUrl;
+    data['statusesUrl'] = statusesUrl;
+    data['languagesUrl'] = languagesUrl;
+    data['stargazersUrl'] = stargazersUrl;
+    data['contributorsUrl'] = contributorsUrl;
+    data['subscribersUrl'] = subscribersUrl;
+    data['subscriptionUrl'] = subscriptionUrl;
+    data['commitsUrl'] = commitsUrl;
+    data['gitCommitsUrl'] = gitCommitsUrl;
+    data['commentsUrl'] = commentsUrl;
+    data['issueCommentUrl'] = issueCommentUrl;
+    data['contentsUrl'] = contentsUrl;
+    data['compareUrl'] = compareUrl;
     data['merges_url'] = mergesUrl;
     data['archive_url'] = archiveUrl;
     data['downloads_url'] = downloadsUrl;
@@ -744,10 +744,10 @@ class Repository {
     if (tempCloneToken != null) {
       data['temp_clone_token'] = tempCloneToken;
     }
-    if (networkCount != null){
+    if (networkCount != null) {
       data['network_count'] = networkCount;
     }
-    if (subscribersCount != null){
+    if (subscribersCount != null) {
       data['subscribers_count'] = subscribersCount;
     }
     data['topics'] = topics;
@@ -879,11 +879,11 @@ class Owner {
   Owner.fromJson(Map<String, dynamic> json) {
     login = json['login'];
     id = json['id'];
-    nodeId = json['node_id'];
+    nodeId = json['nodeId'];
     avatarUrl = json['avatar_url'];
     gravatarId = json['gravatar_id'];
     url = json['url'];
-    htmlUrl = json['html_url'];
+    htmlUrl = json['htmlUrl'];
     followersUrl = json['followers_url'];
     followingUrl = json['following_url'];
     gistsUrl = json['gists_url'];
@@ -891,7 +891,7 @@ class Owner {
     subscriptionsUrl = json['subscriptions_url'];
     organizationsUrl = json['organizations_url'];
     reposUrl = json['repos_url'];
-    eventsUrl = json['events_url'];
+    eventsUrl = json['eventsUrl'];
     receivedEventsUrl = json['received_events_url'];
     type = json['type'];
     siteAdmin = json['site_admin'];
@@ -901,11 +901,11 @@ class Owner {
     final data = <String, dynamic>{};
     data['login'] = login;
     data['id'] = id;
-    data['node_id'] = nodeId;
+    data['nodeId'] = nodeId;
     data['avatar_url'] = avatarUrl;
     data['gravatar_id'] = gravatarId;
     data['url'] = url;
-    data['html_url'] = htmlUrl;
+    data['htmlUrl'] = htmlUrl;
     data['followers_url'] = followersUrl;
     data['following_url'] = followingUrl;
     data['gists_url'] = gistsUrl;
@@ -913,7 +913,7 @@ class Owner {
     data['subscriptions_url'] = subscriptionsUrl;
     data['organizations_url'] = organizationsUrl;
     data['repos_url'] = reposUrl;
-    data['events_url'] = eventsUrl;
+    data['eventsUrl'] = eventsUrl;
     data['received_events_url'] = receivedEventsUrl;
     data['type'] = type;
     data['site_admin'] = siteAdmin;

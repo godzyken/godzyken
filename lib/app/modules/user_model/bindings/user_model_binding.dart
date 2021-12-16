@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+
 import 'package:godzyken/app/modules/home/domain/adapter/adapter.dart';
 import 'package:godzyken/app/modules/user_model/providers/user_model_repository.dart';
 import 'package:godzyken/app/modules/user_model/providers/user_provider.dart';

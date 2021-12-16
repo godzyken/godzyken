@@ -9,12 +9,11 @@ class DashboardView extends GetView<DashboardController> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: GetBuilder<DashboardController>(
-        init: DashboardController(),
+          init: DashboardController(),
           builder: (_) {
-        return Center(
-          child: Obx(
-                () =>
-                Column(
+            return Center(
+              child: Obx(
+                () => Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     const Text(
@@ -24,9 +23,9 @@ class DashboardView extends GetView<DashboardController> {
                     Text('Time: ${_.now.value.toString()}'),
                   ],
                 ),
-          ),
-        );
-      }),
+              ),
+            );
+          }),
     );
   }
 }

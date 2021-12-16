@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:getxfire/getxfire.dart';
-import 'package:godzyken/app/modules/home/domain/entity/user_model.dart';
 
+import 'package:godzyken/app/modules/home/domain/entity/user_model.dart';
 
 class UserModelController extends GetxController {
   UserModelController(this.userId);
@@ -25,7 +25,6 @@ class UserModelController extends GetxController {
   void onReady() async {
     // findAllUsers();
     super.onReady();
-
   }
 
   @override

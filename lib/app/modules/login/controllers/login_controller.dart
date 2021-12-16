@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:getxfire/getxfire.dart';
+
 import 'package:godzyken/app/modules/home/domain/entity/user_model.dart';
 import 'package:godzyken/app/modules/user_model/controllers/user_model_controller.dart';
 import 'package:godzyken/services/auth_service.dart';
@@ -21,8 +22,6 @@ class LoginController extends GetxController {
     super.onInit();
 
     // _user.bindStream(auth.authStateChanges());
-
-
   }
 
   dialogError(String? msg) {
@@ -135,18 +134,16 @@ class LoginController extends GetxController {
   }
 
   loginEmailPassword() async {
-    await GetxFire
-        .signInWithEmailAndPassword(
+    await GetxFire.signInWithEmailAndPassword(
             email: emailC.value, password: passwordC.value)
         .then(
-          (value) => onSuccess(value),
-          onError: (code, message) => onErrorCatch(code, message),
-        );
+      (value) => onSuccess(value),
+      onError: (code, message) => onErrorCatch(code, message),
+    );
   }
 
   createUser() async {
-    await GetxFire
-        .createUserWithEmailAndPassword(
+    await GetxFire.createUserWithEmailAndPassword(
             email: emailC.value, password: passwordC.value)
         .then(
       (value) async {

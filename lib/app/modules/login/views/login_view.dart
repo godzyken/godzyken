@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:getxfire/getxfire.dart';
+
 import 'package:godzyken/app/routes/app_pages.dart';
 import 'package:godzyken/services/auth_service.dart';
 
@@ -32,7 +33,8 @@ class LoginView extends GetView<LoginController> {
                       ),
                       TextFormField(
                         onChanged: (value) => _.passwordC.value = value,
-                        decoration: const InputDecoration(labelText: 'Password'),
+                        decoration:
+                            const InputDecoration(labelText: 'Password'),
                         validator: (String? value) {
                           if (value!.isEmpty) return 'Please enter some text';
                           return null;
@@ -49,8 +51,11 @@ class LoginView extends GetView<LoginController> {
                           ),
                           onPressed: () {
                             _.loginEmailPassword();
-                            final thenTo = Get.rootDelegate.currentConfiguration!
-                                .currentPage!.parameters?['then'];
+                            final thenTo = Get
+                                .rootDelegate
+                                .currentConfiguration!
+                                .currentPage!
+                                .parameters?['then'];
                             Get.rootDelegate.offNamed(thenTo ?? Routes.HOME);
                           },
                         ),
@@ -74,7 +79,10 @@ class LoginView extends GetView<LoginController> {
                   ' ${isLoggedIn ? "Logged In" : "Not Logged In"}'
                   "\nIt's impossible to enter this "
                   "route when you are not logged in!",
-                  style: const TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold, fontSize: 12),
+                  style: const TextStyle(
+                      color: Colors.redAccent,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 12),
                   textAlign: TextAlign.center,
                   softWrap: true,
                 );

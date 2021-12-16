@@ -4,6 +4,19 @@ A new Flutter project.
 
 ## Getting Started
 <!--
+my_crypto api:
+
+nomics.com/docs/
+https://transactions.sendowl.com/orders/98856051/5dc70548cf0e4032995b5fca76f1f59e/1
+
+nomics_currencies
+https://api.nomics.com/v1/currencies/ticker?key=your-key-here&ids=BTC,ETH,XRP&interval=1d,30d&convert=EUR&platform-currency=ETH&per-page=100&page=1
+
+coingecko api:
+https://api.coingecko.com/api/v3/
+https://api.coingecko.com/api/v3/ping
+https://api.coingecko.com/api/v3/simple/price?ids=ids&vs_currencies=vs_currencies
+
 flutter run -d chrome --profile --dart-define=FLUTTER_WEB_DEBUG_SHOW_SEMANTICS=true
 
 BOxuLil5fv-sLbsOYbP0fOGcR-3Hb0qy23d3A6-gsKRB50VmAwGSnoBRlmaR8JDx-9wTU2IPITsSYN50oPPxbks

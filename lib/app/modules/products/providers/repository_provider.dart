@@ -25,7 +25,6 @@ class RepositoryProvider extends GetConnect {
       await delete('repository/$id');
 
   Future<List<Repository?>> fetchRepository() async {
-
     var response = await get('https://api.github.com/users/godzyken/repos');
 
     // print('Reponse StatuCode: ${response.statusCode}');

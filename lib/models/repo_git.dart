@@ -1,7 +1,8 @@
 import 'dart:convert';
 
 import 'package:get/get.dart';
-import 'package:godzyken/app/modules/repos_git/github_api_model.dart';
+
+import 'github_repo.dart';
 
 class RxRepo {
   final htmlUrl = 'https://github.com/godzyken/godzyken'.obs;

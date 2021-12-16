@@ -169,7 +169,6 @@ class UserModel {
   get updatedAt => rx.updatedAt.value;
   set updatedAt(value) => rx.updatedAt.value = value;
 
-
   UserModel.fromJson(Map<String, dynamic> json) {
     login = json['login'];
     id = json['id'];

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:get/get_navigation/get_navigation.dart';
+
 import 'package:godzyken/app/routes/app_pages.dart';
 
 import '../controllers/root_controller.dart';

@@ -7,16 +7,14 @@ import 'package:godzyken/app/modules/home/bindings/home_binding.dart';
 import 'package:godzyken/app/modules/home/views/home_view.dart';
 import 'package:godzyken/app/modules/login/bindings/login_binding.dart';
 import 'package:godzyken/app/modules/login/views/login_view.dart';
+import 'package:godzyken/app/modules/my_crypto/bindings/my_crypto_binding.dart';
+import 'package:godzyken/app/modules/my_crypto/views/my_crypto_view.dart';
 import 'package:godzyken/app/modules/product_details/bindings/product_details_binding.dart';
 import 'package:godzyken/app/modules/product_details/views/product_details_view.dart';
 import 'package:godzyken/app/modules/products/bindings/products_binding.dart';
 import 'package:godzyken/app/modules/products/views/products_view.dart';
 import 'package:godzyken/app/modules/profile/bindings/profile_binding.dart';
 import 'package:godzyken/app/modules/profile/views/profile_view.dart';
-import 'package:godzyken/app/modules/repo_details/bindings/repo_details_binding.dart';
-import 'package:godzyken/app/modules/repo_details/views/repo_details_view.dart';
-import 'package:godzyken/app/modules/repos_git/bindings/repos_git_binding.dart';
-import 'package:godzyken/app/modules/repos_git/views/repos_git_view.dart';
 import 'package:godzyken/app/modules/root/bindings/root_binding.dart';
 import 'package:godzyken/app/modules/root/views/root_view.dart';
 import 'package:godzyken/app/modules/settings/bindings/settings_binding.dart';
@@ -90,23 +88,6 @@ class AppPages {
                             EnsureAuthMiddleware(),
                           ]),
                     ]),
-                GetPage(
-                    name: _Paths.REPOS_GIT,
-                    page: () => ReposGitView(),
-                    binding: ReposGitBinding(),
-                    title: 'Repositories',
-                    transition: Transition.fade,
-                    children: [
-                      GetPage(
-                        name: _Paths.REPO_DETAILS,
-                        page: () => RepoDetailsView(),
-                        binding: RepoDetailsBinding(),
-                        middlewares: [
-                          EnsureAuthMiddleware()
-                        ]
-                      ),
-                    ]
-                ),
               ]),
           GetPage(
             name: _Paths.SETTINGS,
@@ -114,5 +95,10 @@ class AppPages {
             binding: SettingsBinding(),
           ),
         ]),
+    GetPage(
+      name: _Paths.MY_CRYPTO,
+      page: () => MyCryptoView(),
+      binding: MyCryptoBinding(),
+    ),
   ];
 }

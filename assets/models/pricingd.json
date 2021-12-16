@@ -1,0 +1,25 @@
+{
+  "price_change": "269.75208019",
+  "price_change_pct": "0.03297053",
+  "volume": "1110989572.04",
+  "volume_change": "-24130098.49",
+  "volume_change_pct": "-0.02",
+  "market_cap_change": "4805518049.63",
+  "market_cap_change_pct": "0.03",
+  "transparent_market_cap_change": "4800518049.00",
+  "transparent_market_cap_change_pct": "0.0430",
+  "volume_transparency": [
+    {
+      "grade": "A",
+      "volume": "2144455081.37",
+      "volume_change": "-235524941.08",
+      "volume_change_pct": "-0.10"
+    },
+    {
+      "grade": "B",
+      "volume": "15856762.85",
+      "volume_change": "-6854329.88",
+      "volume_change_pct": "-0.30"
+    }
+  ]
+}

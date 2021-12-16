@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import '../controllers/user_model_controller.dart';
 
 class UserModelView extends GetView<UserModelController> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

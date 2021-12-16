@@ -36,5 +36,4 @@ class UserModelRepository implements IHomeRepository {
       return users.body!;
     }
   }
-
 }

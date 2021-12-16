@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:getxfire/getxfire.dart';
+
 import 'package:godzyken/app/modules/home/domain/entity/user_model.dart';
 import 'package:godzyken/app/modules/user_model/providers/user_provider.dart';
 
@@ -14,7 +15,6 @@ class ProfileController extends GetxController {
 
   UserModel? get userModel => _userModel.value;
   User? get user => auth.currentUser;
-
 
   void loadProfilesFromSomeWhere() {
     var sectime = DateTime.now().millisecondsSinceEpoch.toString();
@@ -35,8 +35,6 @@ class ProfileController extends GetxController {
   void onInit() {
     super.onInit();
     Get.log('Profile controller initialized');
-
-
   }
 
   @override

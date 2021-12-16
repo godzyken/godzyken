@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+
 import 'package:godzyken/app/routes/app_pages.dart';
 import 'package:godzyken/services/auth_service.dart';
 
@@ -44,13 +45,13 @@ class DrawerView extends GetView {
             },
           ),
           ListTile(
-            title: const Text('Repositories'),
+            title: const Text('My Crypto'),
             onTap: () {
-              Get.rootDelegate.toNamed(Routes.REPOS_GIT);
+              Get.rootDelegate.toNamed(Routes.MY_CRYPTO);
               //to close the drawer
 
               // Navigator.of(context).pop();
-              Get.nestedKey('/repos-git');
+              Get.nestedKey('/my-crypto');
             },
           ),
           if (AuthService.to.isLoggedInValue)

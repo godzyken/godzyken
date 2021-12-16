@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+
 import 'package:godzyken/app/modules/products/providers/repository_provider.dart';
 import 'package:godzyken/app/modules/products/repository_model.dart';
 
@@ -14,7 +15,7 @@ class ProductsController extends GetxController {
     if (repo != null) {
       repositories.value = repo;
 
-      for(var r in repositories) {
+      for (var r in repositories) {
         repositories.addIf(
             r,
             Repository(
@@ -24,7 +25,6 @@ class ProductsController extends GetxController {
               createdAt: r.createdAt,
             ));
       }
-
     }
   }
 
@@ -51,5 +51,4 @@ class ProductsController extends GetxController {
     Get.printInfo(info: 'Repositories: onClose');
     super.onClose();
   }
-
 }

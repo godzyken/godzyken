@@ -16,7 +16,6 @@ class HomeController extends SuperController<UserModel> {
 
   NavigatorState get router => navigatorkey.currentState!;
 
-
   @override
   void onInit() {
     super.onInit();

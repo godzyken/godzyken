@@ -13,6 +13,8 @@ dependencies:
   flutter_web3: 2.1.6
   niku: 1.1.3
   date_format: 2.0.4
+  syncfusion_flutter_datagrid: 19.3.59
+  flutter_svg: 1.0.0
   flutter: 
     sdk: flutter
 
@@ -21,8 +23,8 @@ dev_dependencies:
   flutter_test: 
     sdk: flutter
 
-flutter:
-  assets:
+flutter: 
+  assets: 
     - assets/image/carrelage_background.jpg
     - assets/image/godzy_logo.png
     - assets/image/github_logo.png
