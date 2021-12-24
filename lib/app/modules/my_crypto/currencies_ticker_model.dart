@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:get/get.dart';
 import 'package:godzyken/app/modules/my_crypto/pricingd_model.dart';
 import 'package:godzyken/app/modules/my_crypto/utils/currency_data_source.dart';
@@ -262,3 +264,11 @@ class CurrencyComparable {
     }
   }
 }
+
+List<CurrenciesTicker?> currenciesFromJson(String? str) => List<CurrenciesTicker?>.from(
+  jsonDecode(str!).map((x) => CurrenciesTicker.fromJson(x))
+);
+
+String? currenciesToJson(List<CurrenciesTicker?> data) => json.encode(
+  List<dynamic>.from(data.map((e) => e!.toJson()))
+);

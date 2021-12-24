@@ -15,6 +15,9 @@ class HomeView extends GetView<HomeController> {
       builder: (context, delegate, currentRoute) {
         final currentLocation = currentRoute?.location;
         var currentIndex = 0;
+        if (currentLocation?.startsWith(Routes.DECISION_BOOK) == true) {
+          currentIndex = 3;
+        }
         if (currentLocation?.startsWith(Routes.PRODUCTS) == true) {
           currentIndex = 2;
         }
@@ -44,6 +47,9 @@ class HomeView extends GetView<HomeController> {
                         case 2:
                           delegate.toNamed(Routes.PRODUCTS);
                           break;
+                        case 3:
+                          delegate.toNamed(Routes.DECISION_BOOK);
+                          break;
                         default:
                       }
                     },
@@ -62,6 +68,17 @@ class HomeView extends GetView<HomeController> {
                       BottomNavigationBarItem(
                           icon: Image(
                             image: AssetImage('image/github_logo.png'),
+                            height: 30.0,
+                            width: 40.0,
+                            fit: BoxFit.contain,
+                            alignment: Alignment.center,
+                          ),
+                          label: 'Products',
+                          backgroundColor: Colors.cyanAccent),
+                      // _Paths.HOME + _Paths.DECISION_BOOK
+                      BottomNavigationBarItem(
+                          icon: Image(
+                            image: AssetImage('image/logo_bat_services.png'),
                             height: 30.0,
                             width: 40.0,
                             fit: BoxFit.contain,

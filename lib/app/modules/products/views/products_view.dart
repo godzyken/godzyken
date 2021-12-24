@@ -28,8 +28,13 @@ class ProductsView extends GetView<ProductsController> {
               () => RefreshIndicator(
                 onRefresh: () async {
                   controller.repositories.clear();
+                  controller.fetchRepo();
                 },
                 child: ListView.builder(
+                  shrinkWrap: true,
+                  controller: controller.scroller,
+                  addAutomaticKeepAlives: true,
+                  addSemanticIndexes: true,
                   itemCount: controller.repositories.length,
                   itemBuilder: (context, index) {
                     final item = controller.repositories[index];
@@ -49,7 +54,8 @@ class ProductsView extends GetView<ProductsController> {
                               child: Image(
                                   image: NetworkImage(item.owner!.avatarUrl))),
                           contentPadding: const EdgeInsets.all(5.0),
-                        ));
+                        )
+                    );
                   },
                 ),
               ),

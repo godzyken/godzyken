@@ -3,6 +3,12 @@ import 'package:get/get.dart';
 import 'package:godzyken/app/middleware/auth_middleware.dart';
 import 'package:godzyken/app/modules/dashboard/bindings/dashboard_binding.dart';
 import 'package:godzyken/app/modules/dashboard/views/dashboard_view.dart';
+import 'package:godzyken/app/modules/decision_add/bindings/decision_add_binding.dart';
+import 'package:godzyken/app/modules/decision_add/views/decision_add_view.dart';
+import 'package:godzyken/app/modules/decision_book/bindings/decision_book_binding.dart';
+import 'package:godzyken/app/modules/decision_book/views/decision_book_view.dart';
+import 'package:godzyken/app/modules/decision_details/bindings/decision_details_binding.dart';
+import 'package:godzyken/app/modules/decision_details/views/decision_details_view.dart';
 import 'package:godzyken/app/modules/home/bindings/home_binding.dart';
 import 'package:godzyken/app/modules/home/views/home_view.dart';
 import 'package:godzyken/app/modules/login/bindings/login_binding.dart';
@@ -88,6 +94,27 @@ class AppPages {
                             EnsureAuthMiddleware(),
                           ]),
                     ]),
+                GetPage(
+                  name: _Paths.MY_CRYPTO,
+                  page: () => MyCryptoView(),
+                  binding: MyCryptoBinding(),
+                ),
+                GetPage(
+                    name: _Paths.DECISION_BOOK,
+                    page: () => DecisionBookView(),
+                    binding: DecisionBookBinding(),
+                    children: [
+                      GetPage(
+                        name: _Paths.DECISION_DETAILS,
+                        page: () => DecisionDetailsView(),
+                        binding: DecisionDetailsBinding(),
+                      ),
+                      GetPage(
+                        name: _Paths.DECISION_ADD,
+                        page: () => DecisionAddView(),
+                        binding: DecisionAddBinding(),
+                      ),
+                    ]),
               ]),
           GetPage(
             name: _Paths.SETTINGS,
@@ -95,10 +122,5 @@ class AppPages {
             binding: SettingsBinding(),
           ),
         ]),
-    GetPage(
-      name: _Paths.MY_CRYPTO,
-      page: () => MyCryptoView(),
-      binding: MyCryptoBinding(),
-    ),
   ];
 }

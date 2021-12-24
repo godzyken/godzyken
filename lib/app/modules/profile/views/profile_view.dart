@@ -18,7 +18,7 @@ class ProfileView extends GetView<ProfileController> {
           ),
           Expanded(
               child: Obx(
-            () => RefreshIndicator(
+                () => RefreshIndicator(
               onRefresh: () async {
                 controller.users.clear();
                 controller.loadProfilesFromSomeWhere();
@@ -51,7 +51,8 @@ class ProfileView extends GetView<ProfileController> {
                 },
               ),
             ),
-          ))
+              ),
+          ),
         ],
       ),
       floatingActionButton: FloatingActionButton.extended(

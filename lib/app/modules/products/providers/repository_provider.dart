@@ -27,14 +27,6 @@ class RepositoryProvider extends GetConnect {
   Future<List<Repository?>> fetchRepository() async {
     var response = await get('https://api.github.com/users/godzyken/repos');
 
-    // print('Reponse StatuCode: ${response.statusCode}');
-    // print('Reponse Body: ${response.body}');
-    // print('Reponse status code: ${response.status.code}');
-    // print('Reponse request headers: ${response.request!.headers}');
-    // print('Reponse BodyBytes: ${response.bodyBytes}');
-    // print('Reponse headers: ${response.headers}');
-    // print('Reponse BodyString: ${response.bodyString}');
-
     if (response.status.hasError) {
       return Future.error(response.statusText!);
     } else {
