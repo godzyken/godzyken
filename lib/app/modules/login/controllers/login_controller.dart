@@ -9,7 +9,7 @@ class LoginController extends GetxController {
   final _user = Rxn<User?>();
 
   User? get user => _user.value;
-
+  var auth = GetxFire.auth;
   var emailC = ''.obs;
   var passwordC = ''.obs;
 
@@ -20,19 +20,21 @@ class LoginController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-
-    // _user.bindStream(auth.authStateChanges());
   }
 
-  dialogError(String? msg) {
-    Get.defaultDialog(
-      title: 'Hi mé ké passo!',
-      middleText: msg!,
-    );
+  @override
+  void onReady() {
+    super.onReady();
+    _user.bindStream(auth.userChanges());
   }
 
+  @override
+  void onClose() {}
+
+  void increment() => count.value++;
+
+/*
   Future<bool?> connectToFirebase() async {
-    var auth = GetxFire.auth;
     try {
       var authInfo = await auth.app.options;
       if (authInfo != null) {
@@ -45,16 +47,14 @@ class LoginController extends GetxController {
           title: 'Error message2: $e', duration: const Duration(seconds: 20));
     }
   }
+*/
 
-  @override
-  void onReady() {
-    super.onReady();
+  dialogError(String? msg) {
+    Get.defaultDialog(
+      title: 'Hi mé ké passo!',
+      middleText: msg!,
+    );
   }
-
-  @override
-  void onClose() {}
-
-  void increment() => count.value++;
 
   onErrorCatch(code, message) {
     if (code == 'email-already-in-use') {
@@ -64,12 +64,14 @@ class LoginController extends GetxController {
         duration: const Duration(seconds: 30),
       );
       Get.toNamed('/sign-in');
-    } else {
+    }
+    if (code == 'user-not-found') {
       GetxFire.openDialog.messageError(
         "Error creating Account 2: $code}",
         title: 'Register Error 2: $message',
         duration: const Duration(seconds: 30),
       );
+      createUser();
     }
     if (code == 'invalid-email') {
       GetxFire.openDialog.messageError(
@@ -78,12 +80,6 @@ class LoginController extends GetxController {
         duration: const Duration(seconds: 30),
       );
       GetxFire.currentUser?.delete();
-    } else {
-      GetxFire.openDialog.messageError(
-        "Error creating Account 4: $message}",
-        title: 'Register Error 4: $code',
-        duration: const Duration(seconds: 30),
-      );
     }
   }
 
@@ -133,13 +129,14 @@ class LoginController extends GetxController {
     }
   }
 
-  loginEmailPassword() async {
-    await GetxFire.signInWithEmailAndPassword(
+  Future<void> loginEmailPassword() async {
+    return await auth
+        .signInWithEmailAndPassword(
             email: emailC.value, password: passwordC.value)
         .then(
-      (value) => onSuccess(value),
-      onError: (code, message) => onErrorCatch(code, message),
-    );
+          (value) => onSuccess(value),
+          onError: (code, message) => onErrorCatch(code, message),
+        );
   }
 
   createUser() async {

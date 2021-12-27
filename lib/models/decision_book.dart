@@ -8,6 +8,7 @@ class RxDecisionTodo {
   final dateTodo = '12/11/2021'.obs;
   final duration = '276'.obs;
   final reasons = 'add project'.obs;
+  final address = '5, rue du ramonétage 34120 Pézenas'.obs;
   final done = false.obs;
   final canceled = false.obs;
   final havePartenariat = false.obs;
@@ -22,6 +23,7 @@ class DecisionTodo {
     dateTodo,
     duration,
     reasons,
+    address,
     done,
     canceled,
     havePartenariat,
@@ -53,6 +55,10 @@ class DecisionTodo {
 
   set reasons(value) => rx.reasons.value = value;
 
+  get address => rx.address.value;
+
+  set address(value) => rx.address.value = value;
+
   get done => rx.done.value;
 
   set done(value) => rx.done.value = value;
@@ -72,6 +78,7 @@ class DecisionTodo {
     dateTodo = json['dateTodo'];
     duration = json['duration'];
     reasons = json['reasons'];
+    address = json['address'];
     done = json['done'];
     canceled = json['canceled'];
     havePartenariat = json['havePartenariat'];
@@ -85,6 +92,7 @@ class DecisionTodo {
     data['dateTodo'] = dateTodo;
     data['duration'] = duration;
     data['reasons'] = reasons;
+    data['address'] = address;
     data['done'] = done;
     data['canceled'] = canceled;
     data['havePartenariat'] = havePartenariat;

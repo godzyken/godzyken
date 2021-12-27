@@ -40,20 +40,4 @@ class DecisionBookController extends GetxController {
 
   void increment() => count.value++;
 
-  void addDecision() {
-    todoList.add(
-      DecisionTodo(
-        id: DateTime.now().millisecondsSinceEpoch.toString(),
-        title: todo.value.title,
-        description: todo.value.description,
-        reasons: todo.value.reasons,
-        havePartenariat: todo.value.havePartenariat,
-        dateTodo: todo.value.dateTodo,
-        duration: todo.value.duration,
-        done: todo.value.done,
-        canceled: todo.value.canceled
-      ),
-    );
-  }
-
 }

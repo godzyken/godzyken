@@ -13,7 +13,7 @@ class HomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return GetRouterOutlet.builder(
       builder: (context, delegate, currentRoute) {
-        final currentLocation = currentRoute?.location;
+        final currentLocation = currentRoute?.location!;
         var currentIndex = 0;
         if (currentLocation?.startsWith(Routes.DECISION_BOOK) == true) {
           currentIndex = 3;
@@ -78,14 +78,14 @@ class HomeView extends GetView<HomeController> {
                       // _Paths.HOME + _Paths.DECISION_BOOK
                       BottomNavigationBarItem(
                           icon: Image(
-                            image: AssetImage('image/logo_bat_services.png'),
+                            image: AssetImage('image/registre_des_decisions_logo.jpg'),
                             height: 30.0,
                             width: 40.0,
                             fit: BoxFit.contain,
                             alignment: Alignment.center,
                           ),
-                          label: 'Products',
-                          backgroundColor: Colors.cyanAccent),
+                          label: 'Register',
+                          backgroundColor: Colors.redAccent),
                     ],
                   ),
                 ));

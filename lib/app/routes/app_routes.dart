@@ -9,7 +9,7 @@ abstract class Routes {
   static const PRODUCTS = _Paths.HOME + _Paths.PRODUCTS;
   static const DASHBOARD = _Paths.HOME + _Paths.DASHBOARD;
   static const DECISION_BOOK = _Paths.HOME + _Paths.DECISION_BOOK;
-  static const DECISION_ADD = _Paths.HOME + _Paths.DECISION_ADD;
+  static const DECISION_ADD = _Paths.HOME + _Paths.DECISION_BOOK + _Paths.DECISION_ADD;
   static const MY_CRYPTO = _Paths.MY_CRYPTO;
   static const SETTINGS = _Paths.SETTINGS;
   static const LOGIN = _Paths.LOGIN;

@@ -49,7 +49,7 @@ class LoginView extends GetView<LoginController> {
                             'LOGIN !!',
                             style: TextStyle(color: Colors.blue, fontSize: 20),
                           ),
-                          onPressed: () {
+                          onPressed: () async {
                             _.loginEmailPassword();
                             final thenTo = Get
                                 .rootDelegate

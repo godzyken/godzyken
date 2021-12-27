@@ -66,7 +66,7 @@ class AppPages {
                   transition: Transition.fade,
                 ),
                 GetPage(
-                    name: Routes.PROFILE,
+                    name: _Paths.PROFILE,
                     page: () => ProfileView(),
                     title: 'Profile',
                     binding: ProfileBinding(),
