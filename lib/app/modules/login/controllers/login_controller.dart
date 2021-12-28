@@ -71,7 +71,6 @@ class LoginController extends GetxController {
         title: 'Register Error 2: $message',
         duration: const Duration(seconds: 30),
       );
-      createUser();
     }
     if (code == 'invalid-email') {
       GetxFire.openDialog.messageError(
@@ -80,6 +79,13 @@ class LoginController extends GetxController {
         duration: const Duration(seconds: 30),
       );
       GetxFire.currentUser?.delete();
+    }
+    if (code == 'email-not-found') {
+      GetxFire.openDialog.messageError(
+        "Error creating Account 4: $code}",
+        title: 'Register Error 4',
+        duration: const Duration(seconds: 30),
+      );
     }
   }
 
@@ -91,16 +97,7 @@ class LoginController extends GetxController {
         title: 'Register ok :',
         duration: const Duration(seconds: 30),
       );
-      ;
-
-      await GetxFire.firestore.updateData(
-        collection: 'users',
-        id: user!.uid,
-        data: UserModel().toJson(),
-        onError: (message) => dialogError(message),
-        isErrorDialog: true,
-      );
-
+      AuthService.to.isLoggedIn.value = true;
       update();
     } else {
       isSignIn.value = false;
@@ -139,19 +136,21 @@ class LoginController extends GetxController {
         );
   }
 
-  createUser() async {
-    await GetxFire.createUserWithEmailAndPassword(
+  Future<void> createUser() async {
+    return await auth
+        .createUserWithEmailAndPassword(
             email: emailC.value, password: passwordC.value)
         .then(
       (value) async {
         UserModel? _user = UserModel(
-            id: value?.user!.uid,
-            name: value?.user!.displayName,
-            email: value?.user!.email,
+            id: value.user!.uid,
+            name: value.user!.displayName,
+            email: value.user!.email,
             createdAt: DateTime.now().millisecondsSinceEpoch.toString(),
-            avatarUrl: value?.user!.photoURL);
+            avatarUrl: value.user!.photoURL);
         if (await AuthService().createNewUser(_user)) {
           Get.find<UserModelController>().user = _user;
+          isSignIn.value = true;
           Get.back();
         }
       },

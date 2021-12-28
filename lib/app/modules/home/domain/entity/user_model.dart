@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 
 class RxUserModel {
   final login = 'login'.obs;
-  final id = 'O'.obs;
+  final id = 0.obs;
   final nodeId = 'nodeId'.obs;
   final avatarUrl =
       'https://avatars.githubusercontent.com/u/33176898?s=96&v=4'.obs;

@@ -20,23 +20,29 @@ class AuthService extends GetxService {
   }
 
   Future<bool> createNewUser(UserModel? userModel) async {
-    try {
-      await _firestore.createData(
-          collection: 'users',
-          id: userModel!.id,
-          data: UserModel().toJson(),
-          onError: (message) => dialogError(message),
-          isErrorDialog: true
-      );
+    if (await _firestore.createData(
+        collection: 'users',
+        id: userModel!.id.toString(),
+        data: UserModel().toJson(),
+        onError: (message) => dialogError(message),
+        isErrorDialog: true)) {
+      isLoggedIn.value = true;
       return true;
-    } on FirebaseException catch (code, msg) {
-      GetxFire.openDialog.messageError(
-          'Error on created user: $msg',
-          title: 'Create user failed with code: $code',
-          duration: const Duration(seconds: 8));
-
-      return false;
     }
+    return false;
+  }
+
+  Future<bool> updateUser(UserModel? userModel) async {
+    if (await _firestore.updateData(
+      collection: 'users',
+      id: userModel!.id.toString(),
+      data: UserModel().toJson(),
+      onError: (message) => dialogError(message),
+      isErrorDialog: true,
+    )) {
+      return true;
+    }
+    return false;
   }
 
   Future<UserModel?> getUser(String? uid) async {
@@ -45,13 +51,11 @@ class AuthService extends GetxService {
           collection: 'users',
           id: uid!,
           onError: (message) => dialogError(message),
-          isErrorDialog: true
-      );
+          isErrorDialog: true);
 
       return UserModel.fromJson(_doc.get(uid));
     } on FirebaseException catch (code, msg) {
-      GetxFire.openDialog.messageError(
-          'Error on get user: $msg',
+      GetxFire.openDialog.messageError('Error on get user: $msg',
           title: 'Get user failed with code: $code',
           duration: const Duration(seconds: 8));
 
@@ -65,5 +69,4 @@ class AuthService extends GetxService {
       middleText: msg!,
     );
   }
-
 }
